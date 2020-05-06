@@ -83,10 +83,20 @@ NSMenuItem *show24HrTimeItem;
         openURL:[NSURL URLWithString:@"http://github.com/netik/UTCMenuClock"]];
 }
 
+- (BOOL) isEpochValid:(double)epoch {
+    // Between 2000 to 2040
+    return 946684800 < epoch && epoch < 2208988800;
+}
+
 
 - (void) doDateUpdate {
 
-    NSDate* date = [NSDate date];
+    NSString *pbtext = [[NSPasteboard generalPasteboard] stringForType:NSStringPboardType];
+    double pbval = [pbtext doubleValue];
+    if (pbval > 1e10) pbval /= 1000;
+    
+    //NSDate* date = [NSDate date];
+    NSDate* date = [[NSDate alloc] initWithTimeIntervalSince1970:pbval];
     NSDateFormatter* UTCdf = [[[NSDateFormatter alloc] init] autorelease];
     NSDateFormatter* UTCdateDF = [[[NSDateFormatter alloc] init] autorelease];
     NSDateFormatter* UTCdateShortDF = [[[NSDateFormatter alloc] init] autorelease];
@@ -141,10 +151,15 @@ NSMenuItem *show24HrTimeItem;
         UTCTzString = @"";
     }
 
-    if (showDate) {
-        [ourStatus setTitle:[NSString stringWithFormat:@"%@ %@%@%@", UTCdateShort, UTCJulianDay, UTCtimepart, UTCTzString]];
+    if ([self isEpochValid:pbval]) {
+        int pbint = (int)pbval;
+        if (showDate) {
+            [ourStatus setTitle:[NSString stringWithFormat:@"%d = %@ %@%@%@", pbint, UTCdateShort, UTCJulianDay, UTCtimepart, UTCTzString]];
+        } else {
+            [ourStatus setTitle:[NSString stringWithFormat:@"%d = %@%@%@", pbint, UTCJulianDay, UTCtimepart, UTCTzString]];
+        }
     } else {
-        [ourStatus setTitle:[NSString stringWithFormat:@"%@%@%@", UTCJulianDay, UTCtimepart, UTCTzString]];
+        [ourStatus setTitle:@""];
     }
 
     [dateMenuItem setTitle:UTCdatepart];
