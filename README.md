@@ -1,6 +1,7 @@
 # Epoch Time Converter
 
 This utility converts epoch timestamp to human readable format.
+
 Just copy an epoch time string to pasteboard, and converted format will show on the menu bar.
 
 Looks like this
@@ -12,7 +13,7 @@ This project is based on [UTCMenuClock](https://github.com/netik/UTCMenuClock)
 
 ## Get started
 
-* Download the zip from [downloads](https://github.com/YF-Tung/EpochTimeConverter/downloads),
+* Download the zip from [here](https://github.com/YF-Tung/EpochTimeConverter/raw/master/downloads/EpochTimeConverter.app.zip),
 unzip and start the app.
 
 May 2020, YFTung
