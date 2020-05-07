@@ -255,7 +255,7 @@ NSMenuItem *show24HrTimeItem;
 
     [cp1Item setTitle:@"UTC Menu Clock v1.2.3"];
     [cp2Item setTitle:@"jna@retina.net"];
-    [cp3Item setTitle:@"http://github.com/netik/UTCMenuClock"];
+    [cp3Item setTitle:@"http://github.com/YF-Tung/EpochTimeConverter"];
 
     [cp3Item setEnabled:TRUE];
     [cp3Item setAction:@selector(openGithubURL:)];
