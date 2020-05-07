@@ -1,3 +1,15 @@
+This utility converts epoch timestamp to human readable format.
+Just copy an epoch time string to pasteboard, and converted format will show on the menu bar.
+
+Looks like this
+
+![image](https://user-images.githubusercontent.com/18486170/81291398-424f1b80-909c-11ea-9843-e1168750374e.png)
+
+This project is based on [UTCMenuClock](https://github.com/netik/UTCMenuClock)
+
+May 2020, YFTung
+
+---
 This is an obscenely simple program to add the UTC time to the MacOS
 Menu Status Bar. I desperately wanted two clocks as the network that I
 work on uses UTC Time exclusively for all of our devices. Converting
